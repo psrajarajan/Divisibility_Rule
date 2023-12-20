@@ -443,6 +443,15 @@ $(function() {
             outline: none;
             max-width: 50px;
         }
+        #quizbutton {
+            text-align: center;
+        }
+        .highlight {
+            display: inline-block;
+            padding: .25em 0;
+            background: #800000;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -527,7 +536,7 @@ $(function() {
                     <input type="number" id="randomdividendbox" class="dtextbox" onkeypress="return isNumber(event)" />
                 </div>
                 <div class="dividendgroup3">
-                    <label style="font-size:10px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px">You can also edit (max. 16 digits only)</label>
+                    <label style="font-size:14px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px">You can edit (max. 15 digits only)</label>
                 </div>
             </div><!--dividendgroup-->
         </div>
@@ -616,13 +625,10 @@ $(function() {
         <div class="seven">
             <input type="button" id="newdividendbutton" value="Check New Dividend" class="dbuttons" disabled />
         </div>
-        <div class="eight">
-            <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" />
-        </div>
         <div class="nine">
             <form action="" name="gendivisorForm">
                 <fieldset style="text-align:center;">
-                    <legend align="center">Generalised Divisibitly rule for any Divisor > 16</legend>
+                    <legend align="center">Divisibitly rule for any Divisor > 16</legend>
                     <label for="odddivisor">
                         Odd
                         <input type="radio" name="gendivisor" id="odddivisor" onclick="oddeven();" value="Odd" disabled>
@@ -636,7 +642,8 @@ $(function() {
 
         </div>
         <div class="ten">
-            <div><input type="number" style='visibility: hidden;' id="oddevenbox" class="oetextbox" value=0 onkeypress="return isNumber(event)" /></div>
+           <div> <div><input type="number" style='visibility: hidden;' id="oddevenbox" class="oetextbox" value=0 onkeypress="return isNumber(event)" /></div><div><label style="font-size:14px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px;visibility: hidden;" id="youcanedit">You can edit <br> (no -ve number)</label>
+                </div></div>
             <div><input type="button" style='visibility: hidden;' id="getoddbutton" class="oebuttons" value="Check for this divisor" onclick="checkoddno();" /></div>
             <div><input type="button" style='visibility: hidden;' id="getevenbutton" class="oebuttons" value="Check for this divisor" onclick="checkevenno();" /></div>
         </div>
@@ -683,7 +690,10 @@ $(function() {
 
         </div>
         <div class="sixteen">
-            <div><h4 style='color:brown;font-weight: bold; visibility: hidden;' id="question1">Q1. Find the smallest dividend that is divisible by first 10 divisors shown in the list (maximum 4 tries allowed)</h4></div>
+           <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
+        
+        <br>
+            <div><h4 style='color:brown;font-weight: bold; visibility: hidden;' id="question1">Q1. What is the smallest dividend that is divisible by first 10 divisors in the above list (maximum 4 tries allowed)</h4></div>
 
             <div class="answerandbutton1">
                 <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer1" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
@@ -695,7 +705,8 @@ $(function() {
             </div>
         </div>
         <div class="eighteen">
-            <div><h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question2">Q2. Find the smallest dividend that is divisible by remaining 5 divisors shown in the list (maximum 4 tries allowed)</h4></div>
+            <br><br><br><br>
+            <div><h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question2">Q2. What is the smallest dividend that is divisible by remaining 5 divisors in the list (maximum 4 tries allowed)</h4></div>
 
             <div class="answerandbutton2">
                 <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer2" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
@@ -708,7 +719,8 @@ $(function() {
 
         </div>
         <div class="twenty">
-            <div><h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question3">Q3. Find the smallest dividend that is divisible by all the 15 divisors shown in the list (maximum 4 tries allowed)</h4></div>
+            <br><br><br><br>
+            <div><h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question3">Q3. What is the smallest dividend that is divisible by all the 15 divisors in the list (maximum 4 tries allowed)</h4></div>
             <div class="answerandbutton3">
                 <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer3" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
                 <div><input type="button" style='visibility: hidden;' id="confirm3" value="Confirm" class="qbuttons" onclick="checkanswer3();" /></div>
@@ -719,9 +731,9 @@ $(function() {
             </div>
         </div>
         <div class="twentyfive">
-            <div>
-                <h4 style='color:#800080;font-weight: bold;visibility: hidden;' id="challenge111">
-                    "Take a Challenge!: (1) Before start the Challenge, generate (not manually) an ODD random dividend of 5 or more digits (2) Click 'Start' button
+            <div >
+                <h4 style='color:#800000;font-weight: bold;visibility: hidden;' id="challenge111">
+                    <span class="highlight">&nbsp Take a Challenge &nbsp  </span>: (1) Before start the Challenge, generate (not manually) an ODD random dividend of 5 or more digits (2) Click 'Start' button
                     (3) Carfully click the divisor button (or buttons one by one) to get YES (OR) edit the dividend (with minimum deviation) and click 'Check for new Dividend' button
                     to get YES (4) Try to clear all divisors (5) Click 'Stop' button and read the report (6) Finally click 'Quit' button
                 </h4>
@@ -882,6 +894,7 @@ $(function() {
                 document.getElementById("biganswer").innerHTML = "";
                 document.getElementById("oddevenbox").style.visibility = "visible";
                 document.getElementById("oddevenbox").value = 18;
+                document.getElementById("youcanedit").style.visibility = "visible";
                 document.getElementById("getevenbutton").style.visibility = "visible";
                 document.getElementById("getoddbutton").style.visibility = "visible";
                 document.getElementById("getoddbutton").style.display = "none";
@@ -915,6 +928,7 @@ $(function() {
                 document.getElementById("biganswer").innerHTML = "";
                 document.getElementById("oddevenbox").style.visibility = "visible";
                 document.getElementById("oddevenbox").value = 17;
+                document.getElementById("youcanedit").style.visibility = "visible";
                 document.getElementById("getoddbutton").style.visibility = "visible";
                 document.getElementById("getevenbutton").style.visibility = "visible";
                 document.getElementById("getevenbutton").style.display = "none";
@@ -1359,48 +1373,51 @@ $(function() {
         function checkanswer1() {
             let answerone = document.getElementById("answer1").value;
 		    if (answerone == 240 ) {
+                window.q1hits = window.q1hits + 1;
                 document.getElementById("result1").innerHTML = "Correct!";
-				window.q1hits = window.q1hits + 1;
                 document.getElementById("confirm1").style.visibility = "hidden";
-            } else if (window.q1hits < 3) {
+			} else if (window.q1hits < 3) {
 			document.getElementById("result1").innerHTML = "Hmm...Try again";
 			window.q1hits = window.q1hits + 1;
 			}
 			else if (window.q1hits > 2) {
 			document.getElementById("result1").innerHTML = "Correct Answer is 240";
 			window.q1hits = window.q1hits + 1;
+            document.getElementById("confirm1").style.visibility = "hidden";
 			}
 			document.getElementById("hitsq1").innerHTML = "Hits: " + window.q1hits;
 			}
 			
 			function checkanswer2() {
-            let answerone = document.getElementById("answer1").value;
-		    if (answerone == 18018 ) {
-                document.getElementById("result2").innerHTML = "Correct2";
-				window.q2hits = window.q1hits + 2;
+            let answertwo = document.getElementById("answer2").value;
+		    if (answertwo == 18018 ) {
+                window.q2hits = window.q2hits + 1;
+                document.getElementById("result2").innerHTML = "Correct!";
                 document.getElementById("confirm2").style.visibility = "hidden";
-            } else if (window.q2hits < 3) {
+	        } else if (window.q2hits < 3) {
 			document.getElementById("result2").innerHTML = "Hmm...Try again";
 			window.q2hits = window.q2hits + 1;
 			}
 			else if (window.q2hits > 2) {
 			document.getElementById("result2").innerHTML = "Correct Answer is 18018";
+             document.getElementById("confirm2").style.visibility = "hidden";
 			window.q2hits = window.q2hits + 1;
 			}
 			document.getElementById("hitsq2").innerHTML = "Hits: " + window.q2hits;
 			}
 		function checkanswer3() {
-            let answerone = document.getElementById("answer1").value;
-		    if (answerone == 360360 ) {
-                document.getElementById("result3").innerHTML = "Correct3";
-				window.q3hits = window.q3hits + 1;
+            let answerthree = document.getElementById("answer3").value;
+		    if (answerthree == 360360 ) {
+                window.q3hits = window.q3hits + 1;
+                document.getElementById("result3").innerHTML = "Correct!";
                 document.getElementById("confirm3").style.visibility = "hidden";
-            } else if (window.q3hits < 3) {
+		    } else if (window.q3hits < 3) {
 			document.getElementById("result3").innerHTML = "Hmm...Try again";
 			window.q3hits = window.q3hits + 1;
 			}
 			else if (window.q3hits > 2) {
 			document.getElementById("result3").innerHTML = "Correct Answer is 360360";
+             document.getElementById("confirm3").style.visibility = "hidden";
 			window.q3hits = window.q3hits + 1;
 			}
 			document.getElementById("hitsq3").innerHTML = "Hits: " + window.q3hits;
