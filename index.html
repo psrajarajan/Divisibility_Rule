@@ -36,12 +36,14 @@ $(function() {
         body {
             font-size: 1rem;
             background-color: #FFFAC8;
-            margin-top: 8px;
+             margin-top: 8px;
              margin-left: 8px;
              margin-right: 8px;
              margin-bottom: 8px;
-                   
         }
+         
+           
+        
 
         hr.newline {
         border: 2px solid #FFFFFF;
@@ -470,7 +472,7 @@ $(function() {
         </div>
         <div class="two" style="background-color:#0000FF">
             <div class="twotitle" style="background-color:#00ABA9;">
-                <h4 style='color:#FFFFFF;font-weight: bold;' id="guidetitle">Navigation Guide: Suggested sequence of action is given by black circled numbers. You may go for a different sequence of action, but the <span style='text-decoration:underline;color:#FFFF00;'>first two actions</span>, must always be the same as shown by the black cirled numbers.</h4>
+                <h4 style='color:#FFFFFF;font-weight: bold;' id="guidetitle">Navigation Guide: Suggested sequence of action is given by black circled numbers. You may choose different sequence, but always the starting actions must be <span style='text-decoration:underline;color:#FFFF00;'>Action #1, Action #2</span> (except for quiz)</h4>
             </div>
             <div class="pictures">
             <div class="guide"> <img src="navigation_guide_with_sequence_numbers.png" alt="guide1"></div>
@@ -693,7 +695,7 @@ $(function() {
         <div class="sixteen">
            <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
         
-        <br>
+      
             <div><h4 style='color:brown;font-weight: bold; visibility: hidden;' id="question1">Q1. What is the smallest dividend that is divisible by first 10 divisors in the above list (maximum 4 tries allowed)</h4></div>
 
             <div class="answerandbutton1">
@@ -706,7 +708,7 @@ $(function() {
             </div>
         </div>
         <div class="eighteen">
-            <br><br><br><br>
+            <br><br><br>
             <div><h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question2">Q2. What is the smallest dividend that is divisible by remaining 5 divisors in the list (maximum 4 tries allowed)</h4></div>
 
             <div class="answerandbutton2">
@@ -720,7 +722,7 @@ $(function() {
 
         </div>
         <div class="twenty">
-            <br><br><br><br>
+            <br><br><br>
             <div><h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question3">Q3. What is the smallest dividend that is divisible by all the 15 divisors in the list (maximum 4 tries allowed)</h4></div>
             <div class="answerandbutton3">
                 <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer3" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
@@ -734,9 +736,7 @@ $(function() {
         <div class="twentyfive">
             <div >
                 <h4 style='color:#800000;font-weight: bold;visibility: hidden;' id="challenge111">
-                    <span class="highlight">&nbsp Take a Challenge &nbsp  </span>: (1) Before start the Challenge, generate (not manually) an ODD random dividend of 5 or more digits (2) Click 'Start' button
-                    (3) Carfully click the divisor button (or buttons one by one) to get YES (OR) edit the dividend (with minimum deviation) and click 'Check for new Dividend' button
-                    to get YES (4) Try to clear all divisors (5) Click 'Stop' button and read the report (6) Finally click 'Quit' button
+                    <span class="highlight">&nbsp Take a Challenge &nbsp  </span>: (1) Generate (not manually) an ODD dividend (at least 5 digits)(2) Click 'Start' button (3) Carfully click the correct divisor button (or buttons one by one) to get YES (OR) edit the dividend (with minimum deviation & and click 'Check for new Dividend' button) to get more divisors (4) Try to clear all divisors (5) Click 'Stop' button and get the report (6) Click 'Quit' button
                 </h4>
             </div>
             <div class="challengebutton" style='margin-left:20px;'>
@@ -1170,8 +1170,6 @@ $(function() {
                 
         }
 
-
-
         function clearoddevenbuttons() {
             document.getElementById("oddevenbox").style.visibility = "hidden";
             document.getElementById("getoddbutton").style.visibility = "hidden";
@@ -1460,23 +1458,13 @@ $(function() {
             window.cdividendspan = 0;
             window.totalchits = 0;
 
-            // document.getElementById("isdivisible").innerHTML = window.yes;
-           /* document.getElementById("divirulehead").style.visibility = "hidden";
-            document.getElementById("diviresultdes").style.visibility = "hidden";
-            document.getElementById("diviresultdes1").style.visibility = "hidden";
-            document.getElementById("diviresultdes2").style.visibility = "hidden";
-            document.getElementById("diviresultdes3").style.visibility = "hidden";
-            */
-
             document.getElementById("divirulehead").style.display = "none";
             document.getElementById("diviruledes").style.display = "none";
             document.getElementById("diviresultdes").style.display = "none";
             document.getElementById("diviresultdes1").style.display = "none";
             document.getElementById("diviresultdes2").style.display = "none";
             document.getElementById("diviresultdes3").style.display = "none";
-            
-
-
+           
             window.cdividend1 = 0;
             window.cdividend1 = window.finaldividend;
             document.getElementById("cstopquit1").style.visibility = "visible";
@@ -1545,16 +1533,6 @@ $(function() {
                 "Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge"
             );
             cdivisorscleared();
-            // divisorbuttondisable();
-            /* document.getElementById("ctime").style.visibility = "visible";
-            document.getElementById("ctime").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
-                window.digitsvalue + " digits dividend";
-            document.getElementById("cdivisors").style.visibility = "visible";
-            document.getElementById("cdivisors").innerHTML = "No. of divisors cleared: " + window.cdivcleared +
-                " (with " + window.totalchits + " hits)";
-            document.getElementById("cdivispan").style.visibility = "visible";
-            document.getElementById("cdivispan").innerHTML = "Deviation from the original dividend on final hit: " +
-                window.cdividendspan; */
                 document.getElementById("divirulehead").innerHTML = "<span>"+ "Report of your Challenge activity:"+"</span>";
                 document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
                 window.digitsvalue + " digits dividend" + "<br>"+ "No. of divisors cleared: " + window.cdivcleared +
@@ -1573,22 +1551,10 @@ $(function() {
             document.getElementById("diviresultdes2").style.display = "block";
             document.getElementById("diviresultdes3").style.display = "block";
 
-            // document.getElementById("divirulehead").innerHTML = "";
-            // document.getElementById("diviruledes").innerHTML = "";
             document.getElementById("diviresultdes").innerHTML = "";
             document.getElementById("diviresultdes1").innerHTML = "";
             document.getElementById("diviresultdes2").innerHTML = "";
             document.getElementById("diviresultdes3").innerHTML = "";
-            
-
-            /* document.getElementById("divirulehead").style.display="inline-block";
-            document.getElementById("diviruledes").style.display = "inline-block";
-            document.getElementById("diviresultdes").style.display = "inline-block";
-            document.getElementById("diviresultdes1").style.display = "inline-block";
-            document.getElementById("diviresultdes2").style.display = "inline-block";
-            document.getElementById("diviresultdes3").style.display = "inline-block"; */
-
-            
 
             document.getElementById("divisor2").style.visibility = "visible";
             document.getElementById("divisor3").style.visibility = "visible";
