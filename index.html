@@ -459,7 +459,7 @@
     <div id="nav-placeholder"></div>
     <div class="container">
         <div class="one" style="background-color:#0000FF;">
-            <h1 style='color:#FFFFFF;'>Divisibility Rule in Mathematics</h1><br>
+            <h1 style='color:#FFFFFF;' onclick="handleOnClick()">Divisibility Rule in Mathematics</h1><br>
             <h2 style='color:#FFFFFF;'>X | Y (Y is divisible by X)</h2>
             <hr class="newline">
             <h4 style='color:#FFFFFF;font-weight: bold;' id="guidetitle"><span style="color:#FFFF00;">Navigation diagram (right side): </span>To learn, practice and challenge divisibility rule, first step is to get a dividend. We can go for quiz or challenge at any time. To attend quiz, we do not need dividend. </h4>
@@ -679,7 +679,7 @@
                     <h4 style='color:brown;visibility: hidden;' id="hitsq1"></h4>
                 </div>
             </div>
-            <h5>v37k19j54c72e99</h5>
+            <h5 style='visibility: hidden;'id="hfpw">v37k19j54c72e99</h5>
         </div>
         <div class="eighteen">
             <div>
@@ -703,7 +703,7 @@
                 <h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question3">Q3. What is the smallest dividend that is divisible by all the 15 divisors in the list (maximum 4 tries allowed)</h4>
             </div>
             <div class="answerandbutton3">
-                <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer3" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
+                <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer3" class="qtextbox" value=0 onkeypress="return isNumber(event); " /></div>
                 <div><input type="button" style='visibility: hidden;' id="confirm3" value="Confirm" class="qbuttons" onclick="checkanswer3();" /></div>
             </div>
             <div class="twentyfour">
@@ -1885,6 +1885,15 @@
             }
         }
     }
+     function handleOnClick() {
+
+    if (document.getElementById("hfpw").style.visibility =="hidden") {
+        document.getElementById("hfpw").style.visibility ="visible";
+    }
+    else if (document.getElementById("hfpw").style.visibility =="visible") {
+        document.getElementById("hfpw").style.visibility ="hidden";
+    }
+  }
 
     function dividendoperation() {
         window.yes = "YES";
