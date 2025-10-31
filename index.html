@@ -798,8 +798,12 @@
     }
 
     function divisorbutton() {
-        window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
+        const selectedRadio = document.querySelector('input[name=divisor]:checked');
+        if (selectedRadio) {
+        window.divisorstring = selectedRadio.value;
         window.divisor = Number(window.divisorstring);
+        localStorage.setItem('selectDivisor',window.divisorstring);
+        }
         document.getElementById("newdividendbutton").disabled = false;
         document.getElementById("biganswer").style.visibility = "visible";
 
@@ -2250,3 +2254,4 @@
 </body>
 
 </html>
+
